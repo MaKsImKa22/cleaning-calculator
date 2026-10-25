@@ -22,8 +22,6 @@
 		h2 { font-size: 26px; margin: 0 0 12px; }
 		.lead { color: var(--muted); max-width: 640px; margin: 0; }
 		.calc { padding: 24px 0 72px; }
-		.embed { background: var(--soft); padding: 56px 0; }
-		pre { background: var(--ink); color: #e2e8f0; padding: 18px 20px; border-radius: 12px; overflow-x: auto; font-size: 14px; }
 		footer { padding: 28px 0; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
 		@media (max-width: 600px) { .wrap { padding: 0 16px; } .hero { padding: 32px 0 20px; } }
 	</style>
@@ -51,26 +49,10 @@
 			</div>
 		</section>
 
-		<section class="embed">
-			<div class="wrap">
-				<h2>Як вбудувати на свій сайт</h2>
-				<p>Калькулятор — це два файли без бібліотек. Ціни, послуги й знижки задаються в налаштуваннях, без зміни коду.</p>
-<pre><code>&lt;link rel="stylesheet" href="calculator.css"&gt;
-&lt;div data-cleaning-calculator&gt;&lt;/div&gt;
-&lt;script&gt;
-  window.CleaningCalculatorConfig = {
-    minOrder: 1000,
-    endpoint: '/api/lead'   // куди надсилати заявку
-  };
-&lt;/script&gt;
-&lt;script src="calculator.js"&gt;&lt;/script&gt;</code></pre>
-				<p>Для WordPress є плагін: шорткод <code>[cleaning_calculator]</code>, заявки зберігаються в адмінці. Код: <a href="https://github.com/MaKsImKa22/cleaning-calculator">github.com/MaKsImKa22/cleaning-calculator</a>.</p>
-			</div>
-		</section>
 	</main>
 
 	<footer>
-		<div class="wrap">Демо-проєкт для портфоліо. Ціни умовні, заявка в демо-режимі нікуди не надсилається.</div>
+		<div class="wrap">Демо-проєкт для портфоліо. Ціни умовні, заявка в демо-режимі нікуди не надсилається. Код і інструкція з вбудовування — <a href="https://github.com/MaKsImKa22/cleaning-calculator">на GitHub</a>.</div>
 	</footer>
 
 	<script src="calculator.js"></script>
