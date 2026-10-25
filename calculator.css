@@ -1,0 +1,118 @@
+/* Калькулятор вартості прибирання. Кольори змінюються змінними --cc-* на будь-якому батьківському елементі. */
+.cc {
+	--cc-accent: #0f766e;
+	--cc-accent-dark: #115e59;
+	--cc-accent-soft: #ccfbf1;
+	--cc-ink: #0f172a;
+	--cc-muted: #475569;
+	--cc-line: #e2e8f0;
+	--cc-bg: #ffffff;
+	--cc-radius: 14px;
+
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 340px;
+	gap: 28px;
+	align-items: start;
+	color: var(--cc-ink);
+	font: inherit;
+	line-height: 1.5;
+}
+
+.cc *, .cc *::before, .cc *::after { box-sizing: border-box; }
+.cc small { color: var(--cc-muted); font-size: 13px; font-weight: 500; }
+.cc [hidden] { display: none !important; }
+.cc :focus-visible { outline: 3px solid var(--cc-accent); outline-offset: 2px; }
+
+.cc-form { display: grid; gap: 22px; }
+.cc-group { margin: 0; padding: 0; border: 0; min-width: 0; }
+.cc-group legend, .cc-label { display: block; margin-bottom: 10px; font-weight: 700; }
+.cc-inline { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.cc-inline .cc-label { margin: 0; }
+
+/* Картки та перемикачі */
+.cc-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.cc-segmented { display: flex; flex-wrap: wrap; gap: 8px; }
+.cc-option { position: relative; cursor: pointer; }
+.cc-option input { position: absolute; opacity: 0; pointer-events: none; }
+.cc-option span {
+	display: flex; flex-direction: column; gap: 2px; height: 100%;
+	padding: 12px 14px; border: 2px solid var(--cc-line); border-radius: 12px; background: var(--cc-bg);
+	transition: border-color .15s, background .15s;
+}
+.cc-segmented .cc-option span { flex-direction: row; align-items: baseline; gap: 6px; padding: 9px 16px; border-radius: 999px; }
+.cc-option:hover span { border-color: #94a3b8; }
+.cc-option input:checked + span { border-color: var(--cc-accent); background: var(--cc-accent-soft); }
+.cc-option input:focus-visible + span { outline: 3px solid var(--cc-accent); outline-offset: 2px; }
+
+/* Площа */
+.cc-area { display: grid; grid-template-columns: 1fr 96px; gap: 14px; align-items: center; }
+.cc-area input[type="range"] { width: 100%; accent-color: var(--cc-accent); }
+.cc input[type="number"], .cc-lead input {
+	width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 10px;
+	font: inherit; color: var(--cc-ink); background: var(--cc-bg);
+}
+
+/* Лічильники */
+.cc-stepper { display: inline-grid; grid-template-columns: 38px 56px 38px; border: 1px solid #cbd5e1; border-radius: 10px; overflow: hidden; background: var(--cc-bg); }
+.cc-stepper input[type="number"] { border: 0; border-radius: 0; text-align: center; padding: 8px 4px; -moz-appearance: textfield; }
+.cc-stepper input::-webkit-inner-spin-button, .cc-stepper input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.cc-step { border: 0; background: #f1f5f9; color: var(--cc-ink); font: inherit; font-size: 20px; font-weight: 700; cursor: pointer; }
+.cc-step:hover { background: var(--cc-accent-soft); color: var(--cc-accent-dark); }
+
+/* Додаткові послуги */
+.cc-extras { display: grid; gap: 4px; }
+.cc-extra { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--cc-line); }
+.cc-extra:last-child { border-bottom: 0; }
+.cc-extra-name { display: flex; flex-direction: column; }
+.cc-extra input[type="checkbox"], .cc-check input { width: 22px; height: 22px; accent-color: var(--cc-accent); cursor: pointer; }
+.cc-check { display: flex; align-items: center; gap: 10px; font-weight: 600; cursor: pointer; }
+
+/* Підсумок */
+.cc-summary {
+	position: sticky; top: 90px;
+	padding: 24px; border: 1px solid var(--cc-line); border-radius: 20px; background: var(--cc-bg);
+	box-shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .08);
+}
+.cc-summary p { margin: 0; }
+.cc-summary-title { color: var(--cc-muted); font-weight: 600; }
+.cc-total { font-size: 40px; font-weight: 800; line-height: 1.15; color: var(--cc-accent-dark); margin: 4px 0 2px !important; }
+.cc-meta { color: var(--cc-muted); font-size: 15px; }
+.cc .cc-lines { list-style: none; margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--cc-line); display: grid; gap: 8px; font-size: 14px; }
+.cc .cc-lines li { margin: 0; display: flex; justify-content: space-between; gap: 12px; }
+.cc-lines b { white-space: nowrap; }
+.cc-min { margin-top: 10px !important; font-size: 14px; color: #b45309; }
+.cc-note { margin-top: 8px !important; font-size: 13px; color: var(--cc-muted); }
+
+.cc-lead { display: grid; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--cc-line); }
+.cc-lead-title { font-weight: 700; }
+.cc-button {
+	padding: 13px 18px; border: 0; border-radius: 999px; background: var(--cc-accent); color: #fff;
+	font: inherit; font-weight: 700; cursor: pointer;
+}
+.cc-button:hover { background: var(--cc-accent-dark); }
+.cc-button:disabled { opacity: .6; cursor: progress; }
+.cc-status { font-size: 14px; font-weight: 600; }
+.cc-status:empty { display: none; }
+.cc-ok { color: var(--cc-accent-dark); }
+.cc-error { color: #b91c1c; }
+
+/* Смужка з ціною внизу екрана — лише на телефонах, поки підсумок ще не видно. */
+.cc-bar { display: none; }
+
+@media (max-width: 860px) {
+	.cc { grid-template-columns: 1fr; }
+	.cc-summary { position: static; scroll-margin-top: 80px; }
+	.cc-bar {
+		position: sticky; bottom: 12px; z-index: 5;
+		display: flex; justify-content: space-between; align-items: center; gap: 12px;
+		padding: 14px 20px; border-radius: 999px; background: var(--cc-accent); color: #fff;
+		font-weight: 600; text-decoration: none; box-shadow: 0 8px 24px rgba(15, 23, 42, .25);
+	}
+	.cc-bar:hover { color: #fff; background: var(--cc-accent-dark); }
+	.cc-bar b { font-size: 18px; }
+}
+
+@media (max-width: 520px) {
+	.cc-cards { grid-template-columns: 1fr; }
+	.cc-total { font-size: 34px; }
+}
