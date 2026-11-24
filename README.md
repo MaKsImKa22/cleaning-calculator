@@ -1,5 +1,7 @@
 # Калькулятор вартості прибирання
 
+[![tests](https://github.com/MaKsImKa22/cleaning-calculator/actions/workflows/tests.yml/badge.svg)](https://github.com/MaKsImKa22/cleaning-calculator/actions/workflows/tests.yml) English version: [README.en.md](README.en.md)
+
 Інтерактивний калькулятор для сайту клінінгової компанії: клієнт обирає тип прибирання, площу й додаткові послуги та одразу бачить ціну, тривалість і кількість клінерів. Чистий JavaScript без бібліотек, плюс плагін для WordPress. Демо-проєкт для портфоліо, ціни умовні.
 
 🌐 **Демо:** https://maksimka22.github.io/cleaning-calculator/
@@ -27,7 +29,7 @@
 <script>
   window.CleaningCalculatorConfig = {
     minOrder: 1000,
-    endpoint: '/api/lead' // куди надсилати заявку; без нього — демо-режим
+    endpoint: '/api/lead' // куди надсилати заявку; без нього - демо-режим
   };
 </script>
 <script src="calculator.js"></script>
@@ -37,7 +39,7 @@
 
 ## WordPress
 
-Ця папка — готовий плагін.
+Ця папка - готовий плагін.
 
 1. Заархівуйте папку й завантажте в **Плагіни → Додати новий → Завантажити плагін**, активуйте.
 2. Вставте шорткод `[cleaning_calculator]` на будь-яку сторінку.
